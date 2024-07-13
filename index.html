@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /*Align Form*/
+            .form-page-indicator.progress{
+                grid-area: progress-section;
+            }
+
+            .form-field-container{
+                grid-area: field-container;
+            }
+
+            .form-submit-container{
+                grid-area: submit-container;
+            }
+
+            .wpforms-css-test{
+                display: grid;
+                grid-template-areas:
+                    'progress-section '
+                    'field-container '
+                    'submit-container ';
+                gap: 10px;
+                /*background-color: #2196F3;*/
+                padding: 10px;
+            }
+            /*End of align Form*/
+
+            /*Align progress*/
+            .current-page{
+                grid-area: current-page;
+            }
+            .form-page-indicator-page-progress{
+                grid-area: page-progress;
+            }
+
+            .form-page-indicator.progress {
+                display: grid;
+                grid-template-areas:
+                    'current-page '
+                    'page-progress ';
+                gap: 5px;
+                /*background-color: #2196F3;*/
+                padding: 2px 0;
+            }
+             /*End of align progress*/
+
+
+            /*Align page 1 field row*/
+            .field-row-first-half{
+                grid-area: first-half;
+            }
+
+            .field-row-second-half{
+                grid-area: second-half;
+            }
+
+            .field-row {
+                display: grid;
+                grid-template-areas:
+                    'first-half second-half ';
+                gap: 5px;
+                /*background-color: #2196F3;*/
+                padding: 2px 0;
+            }
+        
+            /*End of align page 1 field row*/
+
+            /*Align first name*/
+            input#first-name {
+                grid-area: first-name-input;
+            }
+
+            label.first-name {
+                grid-area: first-name-label;
+            }
+
+            .field-row-first-half{
+                display: grid;
+                grid-template-areas:
+                    'first-name-input '
+                    'first-name-label ';
+                gap: 5px;
+                /*background-color: #2196F3;*/
+                padding: 2px 0;
+            }
+
+            /*Align last name*/
+            input#last-name {
+                grid-area: last-name-input;
+            }
+
+            label.last-name {
+                grid-area: last-name-label;
+            }
+
+            .field-row-second-half {
+                display: grid;
+                grid-template-areas:
+                    'last-name-input '
+                    'last-name-label ';
+                gap: 5px;
+                /*background-color: #2196F3;*/
+                padding: 2px 0;
+            }
+            
+            /*Align page 2's page-fields and form-next-button*/
+            .form-page.form-page-2 .page-fields{
+                grid-area: page-2-fields;
+            }
+
+            .form-page.form-page-2 .form-next-button{
+                grid-area: page-2-next-button;
+            }
+
+            .form-page.form-page-2{
+                display: grid;
+                grid-template-areas:
+                    'page-2-fields '
+                    'page-2-next-button ';
+                gap: 5px;
+                /*background-color: #2196F3;*/
+                padding:2px 0;
+            }
+
+            /*Align Email*/
+            input#email {
+                grid-area: email-input;
+            }
+
+            label.email {
+                grid-area: email-label;
+            }
+
+
+            .form-page.form-page-2 .page-fields{
+                display: grid;
+                grid-template-areas:
+                    'email-label '
+                    'email-input ';
+                gap: 5px;
+                /*background-color: #2196F3;*/
+                padding: 2px 0;
+            }
+
+             /*Align comment*/
+             input#comment {
+                grid-area: comment-input;
+            }
+
+            label.comment {
+                grid-area: comment-label;
+            }
+
+            .form-page.form-page-3 .page-fields{
+                display: grid;
+                grid-template-areas:
+                    'comment-label '
+                    'comment-input ';
+                gap: 5px;
+                /*background-color: #2196F3;*/
+                padding: 2px 0;
+            }
+
+            /*Align Pages*/
+            .form-page.form-page-1{
+                /*background-color: #72b239;*/
+                grid-area: page1;
+
+            }
+            .form-page.form-page-2{
+                /*background-color: #72b239;*/
+                grid-area: page2;
+
+            }
+            .form-page.form-page-3{
+                /*background-color: #72b239;*/
+                grid-area: page3;
+
+            }
+
+            .form-field-container {
+                display: grid;
+                grid-template-areas:
+                    'page1 '
+                    'page2 '
+                    'page3 ';
+                gap: 10px;
+                /*background-color: #2196F3;*/
+                padding: 10px;
+            }
+
+            .form-field-container  > div {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+            /*End of align Pages*/
+
+
+            /*General rules*/
+            .form-container{
+                width: 600px;
+
+
+            }
+
+            .form-container *{
+                font-size: 18px;
+
+            }
+
+            .form-container .field-label{
+                font-weight: 700;/*Field label weight*/
+            }
+
+            fieldset {
+                border: none;/*Remove field set border*/
+                margin: 0;
+                padding: 0;
+            }
+
+            .form-container input, .form-container textarea, .form-next-button button, .form-submit-container button{
+                padding:  0 14px;
+                border-radius: 3px;
+            }
+
+            .form-container input, .form-next-button button, .form-submit-container button{
+                height: 43px;
+            }
+
+            .form-container textarea{
+                line-height: 1.3;
+            }
+
+            .form-next-button button, .form-submit-container button{
+                background-color: #066aab;
+                border-color: #066aab;
+                color: #fff;
+            }
+
+            .form-next-button button:hover,
+            .form-submit-container button:hover {
+                background-color: #045a8d; 
+                border-color: #045a8d; 
+            }
+
+            .form-page-indicator-page-progress{
+                background: linear-gradient(90deg, rgba(0,0,0,0.25) -1000%, transparent 500%);
+                height: 18px;
+                border-radius: 10px;
+                overflow: hidden;
+                margin: 5px 0 0;
+            }
+            
+            .form-page-indicator-page-progress .progress{
+                height: 18px;
+            }
+
+            /*Required star*/
+            span.required {
+                color: #ff0000;
+            }
+           
+            /*Form */
+            .form-container {
+                background-color: #FFFFFF;
+                border-radius: 6px;
+                padding: 50px;
+                box-shadow: 0px 15px 50px rgba(0,0,0,0.15);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form-container">
+            <form class="wpforms-css-test" action="">
+                <div class="form-page-indicator progress">
+                    <div class="current-page">
+                        <span>
+                            Step
+                            <span class="current-page-number">1</span>
+                            of 3
+                        </span>
+                    </div>
+                    
+                    <div class="form-page-indicator-page-progress" >
+                        
+                        <div id="the-progress" class="progress" style="width:33.333333333333%;background-color:#72b239"></div>
+                        
+                    </div>
+                </div>
+                <!--.form-page-indicator progress-->
+                <div class="form-field-container">
+                    <div class="form-page form-page-1">
+                        <div class="page-fields">
+                            <fieldset>
+                                <legend class="field-label">
+                                    Name<span class="required">*</span>
+                                </legend>
+                                <div class="field-row">
+                                    <div class="field-row-first-half">
+                                        <input type="text" id="first-name" required>
+                                        <label for="first-name">First</label>
+                                    </div>
+                                    <div class="field-row-second-half">
+                                        <input type="text" id="last-name" required>
+                                        <label class="last-name" for="last-name">Last</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="form-next-button">
+                            <button type="button" id="page1-next">Next</button>
+                        </div>
+                    </div>
+                    <!--.form-page form-page-1-->
+                    <div class="form-page form-page-2" style="display: none;">
+                        <div class="page-fields">
+                            <label class="email field-label" for="email">Email<span class="required">*</span></label>
+                            <input type="email" name="email" id="email" required>
+                        </div>
+                        <div class="form-next-button">
+                            <button type="button" id="page2-next">Next</button>
+                        </div>
+                    </div>
+                    <!--.form-page form-page-2-->
+                    <div class="form-page form-page-3" style="display: none;">
+                        <div class="page-fields">
+                            <label class="comment field-label" for="email">Comment or Message<span class="required">*</span></label>
+                            <textarea rows="4" name="comment" id="comment" required></textarea>
+                        </div>
+                    </div>
+                    <!--.form-page form-page-3-->
+                </div>
+                <!--.form-field-container-->
+                <div class="form-submit-container" style="display: none;">
+                    <button type="submit" id="submit-btn">Submit</button>
+                </div>
+                <!--.form-submit-container-->
+            </form>
+            <!--form-->
+        </div>
+        
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const page1NextButton = document.getElementById('page1-next');
+            const page2NextButton = document.getElementById('page2-next');
+            const submitButton = document.getElementById('submit-btn');
+            const progress = document.getElementById('the-progress');
+            
+            page1NextButton.addEventListener('click', function() {
+                // Hide page 1 and show page 2
+                document.querySelector('.form-page-1').style.display = 'none';
+                document.querySelector('.form-page-2').style.display = 'grid'; // Adjust display property as per your CSS
+                progress.style.width = '66.666666%';
+                progress.style.backgroundColor = '#72b239';
+            });
+
+            page2NextButton.addEventListener('click', function() {
+                // Hide page 2 and show page 3 and submit button
+                document.querySelector('.form-page-2').style.display = 'none';
+                document.querySelector('.form-page-3').style.display = 'grid'; // Adjust display property as per your CSS
+                document.querySelector('.form-submit-container').style.display = 'grid'; // Adjust display property as per your CSS
+                progress.style.width = '100%';
+                progress.style.backgroundColor = '#72b239';
+            });
+
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent form submission for demonstration
+                alert('Test form'); // Show alert message
+                // You can add additional logic here for form submission
+            });
+        });
+    </script>
+</html>
